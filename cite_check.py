@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CourtListener Citation Checker - Core functionality
+CourtListener Citation Check - Core functionality
 
 A minimal script that checks legal citations using the CourtListener API.
 Returns structured data for the command to format and present.

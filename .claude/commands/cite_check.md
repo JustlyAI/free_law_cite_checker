@@ -4,7 +4,7 @@ Check legal citations in the specified file and generate a comprehensive report.
 
 ## Usage
 
-/cite_checker $ARGUMENTS
+/cite_check $ARGUMENTS
 
 ## Instructions
 
@@ -24,7 +24,7 @@ Execute the citation check using the following steps:
    ```python
    import sys
    sys.path.append('.')
-   from cite_checker import check_citations
+   from cite_check import check_citations
 
    result = check_citations("$ARGUMENTS", "data/outputs/citecheck_results")
    ```

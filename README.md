@@ -127,10 +127,10 @@ pip install requests python-dotenv
 
    ```bash
    # Check citations in a file (output to console)
-   python cite_checker.py document.md
+   python cite_check.py document.md
 
    # Save report to a specific directory
-   python cite_checker.py document.md /path/to/output/directory
+   python cite_check.py document.md /path/to/output/directory
    ```
 
 ### Using with Claude Code
@@ -169,7 +169,7 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
    mkdir -p .claude/commands
    ```
 
-2. **Create a custom command file** `.claude/commands/cite_checker.md`:
+2. **Create a custom command file** `.claude/commands/cite_check.md`:
 
    ```markdown
    # Citation Check Command
@@ -178,14 +178,14 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
 
    ## Usage
 
-   /cite_checker <file_path>
+   /cite_check <file_path>
 
    ## Instructions
 
    Execute the citation check using the following steps:
 
    1. Validate the input file exists and is readable
-   2. Run: python cite_checker.py "$ARGUMENTS" "data/outputs/citecheck_results"
+   2. Run: python cite_check.py "$ARGUMENTS" "data/outputs/citecheck_results"
    3. Display formatted results with color coding
    4. Show the report save location
    ```
@@ -198,13 +198,13 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
    claude
 
    # Use the custom command
-   /cite_checker my-legal-document.md
+   /cite_check my-legal-document.md
    ```
 
 #### How Custom Commands Work
 
 - Commands are Markdown files in `.claude/commands/`
-- The filename becomes the command name (e.g., `cite_checker.md` → `/cite_checker`)
+- The filename becomes the command name (e.g., `cite_check.md` → `/cite_check`)
 - `$ARGUMENTS` is replaced with any text after the command
 - Commands can include detailed instructions for Claude to follow
 - Commands are project-specific and can be committed to version control
@@ -284,18 +284,18 @@ See also Miranda v. Arizona, 384 U.S. 436 (1966) for related precedent.
 Run:
 
 ```bash
-python cite_checker.py test.md
+python cite_check.py test.md
 ```
 
 ### Example 2: Checking a Legal Brief
 
 ```bash
 # Direct usage
-python cite_checker.py legal-briefs/motion-to-dismiss.md reports/
+python cite_check.py legal-briefs/motion-to-dismiss.md reports/
 
 # With Claude Code
 claude
-/cite_checker legal-briefs/motion-to-dismiss.md
+/cite_check legal-briefs/motion-to-dismiss.md
 ```
 
 ### Example 3: Batch Processing
@@ -304,7 +304,7 @@ Create a simple wrapper script:
 
 ```python
 import os
-from cite_checker import check_citations
+from cite_check import check_citations
 
 for filename in os.listdir('documents'):
     if filename.endswith(('.md', '.txt')):
