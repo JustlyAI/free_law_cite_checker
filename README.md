@@ -207,7 +207,6 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
 - The filename becomes the command name (e.g., `cite_check.md` → `/cite_check`)
 - `$ARGUMENTS` is replaced with any text after the command
 - Commands can include detailed instructions for Claude to follow
-- Commands are project-specific and can be committed to version control
 
 #### Benefits of Claude Code Integration
 
