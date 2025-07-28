@@ -9,7 +9,7 @@ A Python-based tool for validating legal citations using the CourtListener API. 
 - **Multiple Formats**: Supports `.md`, `.txt`, and `.markdown` files
 - **Detailed Reports**: Generates JSON reports with citation status, case names, and metadata
 - **Security**: Built-in path validation to prevent directory traversal attacks
-- **Claude Code Integration**: Custom slash command for seamless AI-assisted workflows
+- **Claude Code Integration**: Custom slash command for seamless AI-assisted workflows with formatted output
 
 ## Table of Contents
 
@@ -19,6 +19,10 @@ A Python-based tool for validating legal citations using the CourtListener API. 
 - [Usage](#usage)
   - [Using the Python Script Directly](#using-the-python-script-directly)
   - [Using with Claude Code](#using-with-claude-code)
+    - [What is Claude Code?](#what-is-claude-code)
+    - [Installing Claude Code](#installing-claude-code)
+    - [Setting Up Custom Commands](#setting-up-custom-commands)
+    - [How Custom Commands Work](#how-custom-commands-work)
 - [Output Format](#output-format)
 - [Examples](#examples)
 - [Configuration](#configuration)
@@ -29,14 +33,14 @@ A Python-based tool for validating legal citations using the CourtListener API. 
 
 - Python 3.8 or higher
 - CourtListener API token (free tier available)
-- (Optional) Claude Code for enhanced workflow integration
+- (Optional) Claude Code for enhanced workflow integration (requires Claude Pro/Max subscription)
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/legal-citation-checker.git
-cd legal-citation-checker
+git clone https://github.com/yourusername/free_law_cite_checker.git
+cd free_law_cite_checker
 ```
 
 2. Install dependencies:
@@ -86,52 +90,107 @@ CourtListener provides free API access for non-commercial use:
 2. **Run the script**:
    ```bash
    # Check citations in a file (output to console)
-   python citecheck.py document.md
+   python cite_checker.py document.md
    
    # Save report to a specific directory
-   python citecheck.py document.md /path/to/output/directory
+   python cite_checker.py document.md /path/to/output/directory
    ```
 
 ### Using with Claude Code
 
-1. **Install Claude Code** (if not already installed):
+#### What is Claude Code?
+
+Claude Code is Anthropic's AI-powered coding assistant that runs in your terminal. It can understand your entire codebase, execute commands, and help you code faster with deep contextual awareness.
+
+#### Installing Claude Code
+
+1. **Install via npm** (requires Node.js 16+):
    ```bash
-   npm install -g @anthropic/claude-code
+   npm install -g @anthropic-ai/claude-code
    ```
 
-2. **Set up the custom command**:
-   
-   Create the directory structure:
+2. **Verify installation**:
+   ```bash
+   claude --version
+   ```
+
+3. **Authenticate** (requires Claude Pro or Max subscription):
+   ```bash
+   claude login
+   ```
+   This will open your browser for authentication. Your credentials are securely stored.
+
+#### Setting Up Custom Commands
+
+Claude Code supports custom slash commands - reusable prompts stored as Markdown files that execute specific workflows.
+
+1. **Create the commands directory**:
    ```bash
    mkdir -p .claude/commands
    ```
+
+2. **Create a custom command file** `.claude/commands/cite_checker.md`:
+   ```markdown
+   # Citation Check Command
    
-   Copy the command file:
+   Check legal citations in the specified file and generate a comprehensive report.
+   
+   ## Usage
+   /cite_checker <file_path>
+   
+   ## Instructions
+   Execute the citation check using the following steps:
+   1. Validate the input file exists and is readable
+   2. Run: python cite_checker.py "$ARGUMENTS" "data/outputs/citecheck_results"
+   3. Display formatted results with color coding
+   4. Show the report save location
+   ```
+
+3. **Use the custom command**:
    ```bash
-   cp claude-commands/citecheck.md .claude/commands/
-   ```
-
-3. **Ensure the Python script is accessible**:
-   
-   The command expects the script at `src/run/citecheck.py`. Adjust the path in the command file if your structure is different.
-
-4. **Use the command in Claude Code**:
-   ```
+   # Start Claude Code in your project directory
+   cd /path/to/free_law_cite_checker
    claude
-   /citecheck my-legal-document.md
+   
+   # Use the custom command
+   /cite_checker my-legal-document.md
    ```
 
-   Claude will:
-   - Validate the file
-   - Run the citation checker
-   - Display formatted results with color coding
-   - Save a detailed report
+#### How Custom Commands Work
+
+- Commands are Markdown files in `.claude/commands/`
+- The filename becomes the command name (e.g., `cite_checker.md` → `/cite_checker`)
+- `$ARGUMENTS` is replaced with any text after the command
+- Commands can include detailed instructions for Claude to follow
+- Commands are project-specific and can be committed to version control
+
+#### Benefits of Claude Code Integration
+
+1. **Enhanced Output Formatting**: Claude Code can display results with colors, emojis, and structured formatting
+2. **Error Handling**: Better error messages and guidance when issues occur
+3. **Workflow Automation**: Combine citation checking with other development tasks
+4. **Context Awareness**: Claude understands your project structure and can suggest improvements
+5. **Interactive Assistance**: Get help interpreting results or fixing citation issues
 
 ## Output Format
 
 ### Console Output (Direct Script Usage)
 
-The script outputs a JSON report with the following structure:
+When run directly, the script outputs a summary to the console:
+
+```
+Citation Check Summary:
+- Total: 9 citations
+- Valid: 5
+- Not found: 4
+- Invalid: 0
+
+Report saved: /path/to/output/document_report_20240326_103000.json
+```
+
+### JSON Report Format
+
+The detailed JSON report saved to disk contains comprehensive information:
 
 ```json
 {
@@ -148,7 +207,7 @@ The script outputs a JSON report with the following structure:
   },
   "citations": [
     {
-      "citation_text": "Brown v. Board of Education, 347 U.S. 483 (1954)",
+      "citation_text": "347 U.S. 483",
       "normalized": ["347 U.S. 483"],
       "status": 200,
       "status_name": "FOUND",
@@ -168,7 +227,7 @@ The script outputs a JSON report with the following structure:
 
 ### Claude Code Output
 
-When using the `/citecheck` command, you'll see:
+When using the `/cite_checker` command, you'll see:
 
 ```
 📊 Citation Check Complete
@@ -180,9 +239,9 @@ Total citations found: 5
   🔄 Multiple matches: 1
 
 Citation Details:
-  ✓ Brown v. Board of Education, 347 U.S. 483 (1954) - Brown v. Board of Education
-  ✗ Fake v. Citation, 999 U.S. 999 (2099) - NOT FOUND
-  ⚠️ Smith v. Jones, 123 F.3d 456 (2020) - MULTIPLE MATCHES
+  ✓ 347 U.S. 483 - Brown v. Board of Education
+  ✗ 999 U.S. 999 - NOT FOUND
+  ⚠️ 123 F.3d 456 - MULTIPLE MATCHES
 
 💾 Report saved to: data/outputs/citecheck_results/document_report_20240326_103000.json
 ```
@@ -199,18 +258,18 @@ See also Miranda v. Arizona, 384 U.S. 436 (1966) for related precedent.
 
 Run:
 ```bash
-python citecheck.py test.md
+python cite_checker.py test.md
 ```
 
 ### Example 2: Checking a Legal Brief
 
 ```bash
 # Direct usage
-python citecheck.py legal-briefs/motion-to-dismiss.md reports/
+python cite_checker.py legal-briefs/motion-to-dismiss.md reports/
 
 # With Claude Code
 claude
-/citecheck legal-briefs/motion-to-dismiss.md
+/cite_checker legal-briefs/motion-to-dismiss.md
 ```
 
 ### Example 3: Batch Processing
@@ -218,7 +277,7 @@ claude
 Create a simple wrapper script:
 ```python
 import os
-from citecheck import check_citations
+from cite_checker import check_citations
 
 for filename in os.listdir('documents'):
     if filename.endswith(('.md', '.txt')):

@@ -5,5 +5,7 @@ data/outputs/*
 
 .claude/settings.local.json
 
+.DS_Store
+**/.DS_Store
 __pycache__/
 **/__pycache__/
