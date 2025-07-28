@@ -1,4 +1,4 @@
-# Legal Citation Checker
+# Free Law Cite Checker
 
 A Python-based tool for validating legal citations using the CourtListener API. This tool can be used standalone or integrated with Claude Code as a custom command for enhanced productivity.
 
