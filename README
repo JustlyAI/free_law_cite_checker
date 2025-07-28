@@ -232,25 +232,6 @@ for filename in os.listdir('documents'):
 
 - `COURTLISTENER_API_TOKEN`: Your CourtListener API token (required)
 
-### File Structure
-
-Recommended project structure:
-```
-.
-├── .claude/
-│   └── commands/
-│       └── citecheck.md
-├── src/
-│   └── run/
-│       └── citecheck.py
-├── data/
-│   └── outputs/
-│       └── citecheck_results/
-├── .env
-├── .gitignore
-└── README.md
-```
-
 ### Security Notes
 
 - The script validates file paths to prevent directory traversal attacks

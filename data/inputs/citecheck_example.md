@@ -1,0 +1,5 @@
+In Fictional v. Reality, 999 U.S. 123 (2025), the Court ruled on an entirely hypothetical matter. However, in Brown v. Board of Education, 347 U.S. 483 (1954), the Court famously held that “separate educational facilities are inherently unequal.” In a lesser‑known ruling, Imaginary Corp. v. Dreamland, 123 U.S. 456 (1899), the Court dealt with an invented conflict over inter‑state commerce.
+
+Meanwhile Mapp v. Ohio, 367 U.S. 643 (1961), established the exclusionary rule for evidence seized unlawfully. In Ghost Industries v. Phantom, 88 U.S. 777 (1920), a made‑up dispute over patent enforcement was resolved. Similarly, Zero v. Infinity, 202 U.S. 404 (2018), a fictional case, considered issues of abstract constitutional interpretation.
+
+Another canonical case, Marbury v. Madison, 5 U.S. 137 (1803), set the foundation for judicial review. In contrast, Nonsense v. Nothing, 52 U.S. 999 (1850), is purely fictional. Finally, Mythos v. Logic, 314 U.S. 159 (1971), deals with a fantastical question of rights—not a real decision.
