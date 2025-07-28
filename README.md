@@ -334,4 +334,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Free Law Project](https://free.law/) for maintaining open legal data
 - [Eyecite](https://github.com/freelawproject/eyecite) - The powerful citation extraction engine behind CourtListener's citation APIs
 - [Harvard Library Innovation Lab](https://lil.law.harvard.edu/) for collaboration on Eyecite development
-- The legal technology community for feedback and suggestions
