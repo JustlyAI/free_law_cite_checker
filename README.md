@@ -2,6 +2,30 @@
 
 A Python-based tool for validating legal citations using the CourtListener API. This tool can be used standalone or integrated with Claude Code as a custom command for enhanced productivity.
 
+## About Eyecite and Free Law Project
+
+This tool leverages the power of **Eyecite**, an open-source, high-performance tool for extracting, parsing, and normalizing legal citations from free-form text. Developed by Free Law Project in collaboration with the Harvard Library Innovation Lab, Eyecite has been battle-tested on over fifty million citations across CourtListener and the Caselaw Access Project.
+
+### Eyecite Key Capabilities
+
+- **Extraction**: Recognizes hundreds of citation patterns (full case, short form, statutory, journal, supra, id.)
+- **Aggregation**: Links shorthand ("supra," "id.") citations back to their antecedents
+- **Annotation**: Wraps citations in custom markup for downstream processing
+- **Normalization**: Converts citations into a consistent reporter format and exposes metadata (volume, page, court, year, pincite, parties)
+- **Cleaning**: Pre-processes text (e.g. removing noise) to improve parsing accuracy
+
+Eyecite powers CourtListener's Citation Lookup and Verification APIs and can be used standalone via its Python library or command-line interface. It's the backbone of any system needing robust, scalable legal citation handling.
+
+### Free Law Project APIs
+
+The CourtListener API, provided by Free Law Project, offers comprehensive access to legal data including:
+- Citation lookup and verification endpoints powered by Eyecite
+- Access to millions of legal opinions and documents
+- Court data and docket information
+- Judge biographical information
+
+Learn more at [CourtListener API documentation](https://www.courtlistener.com/help/api/rest/v4/citation-lookup/)
+
 ## Features
 
 - **Citation Validation**: Validates legal citations against CourtListener's comprehensive database
@@ -39,7 +63,7 @@ A Python-based tool for validating legal citations using the CourtListener API. 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/free_law_cite_checker.git
+git clone https://github.com/[your-username]/free_law_cite_checker.git
 cd free_law_cite_checker
 ```
 
@@ -335,12 +359,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [CourtListener](https://www.courtlistener.com) for providing the comprehensive legal citation API
 - [Free Law Project](https://free.law/) for maintaining open legal data
+- [Eyecite](https://github.com/freelawproject/eyecite) - The powerful citation extraction engine behind CourtListener's citation APIs
+- [Harvard Library Innovation Lab](https://lil.law.harvard.edu/) for collaboration on Eyecite development
 - The legal technology community for feedback and suggestions
 
 ## Support
 
-- **Issues**: Please use the [GitHub issue tracker](https://github.com/yourusername/legal-citation-checker/issues)
-- **Discussions**: Join our [discussions](https://github.com/yourusername/legal-citation-checker/discussions)
+- **Issues**: Please use the [GitHub issue tracker](https://github.com/[your-username]/free_law_cite_checker/issues)
+- **Discussions**: Join our [discussions](https://github.com/[your-username]/free_law_cite_checker/discussions)
 - **CourtListener API**: See their [documentation](https://www.courtlistener.com/api/rest/v4/) and [support](https://www.courtlistener.com/contact/)
 
 ---
