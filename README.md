@@ -2,7 +2,7 @@
 
 A Python-based tool for validating legal citations using the CourtListener API. This tool can be used standalone or integrated with Claude Code as a custom command for enhanced productivity.
 
-## A note on confidentiality
+## NOT CONFIDENTIAL
 
 This tool is intended for legal research and citation verification only. Please note that both Claude Code and the CourtListener API are external services. As such, they are not suitable for handling privileged or confidential information—do not submit any sensitive or confidential data when using this tool or its integrations.
 
