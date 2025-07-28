@@ -1,9 +1,12 @@
 .env
 .venv
 .vscode
+
 data/outputs/*
 
 .claude/settings.local.json
+CLAUDE.md
+**/CLAUDE.md
 
 .DS_Store
 **/.DS_Store

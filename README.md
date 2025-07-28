@@ -2,6 +2,10 @@
 
 A Python-based tool for validating legal citations using the CourtListener API. This tool can be used standalone or integrated with Claude Code as a custom command for enhanced productivity.
 
+## A note on confidentiality
+
+This tool is intended for legal research and citation verification only. Please note that both Claude Code and the CourtListener API are external services. As such, they are not suitable for handling privileged or confidential information—do not submit any sensitive or confidential data when using this tool or its integrations.
+
 ## About Eyecite and Free Law Project
 
 This tool leverages the power of **Eyecite**, an open-source, high-performance tool for extracting, parsing, and normalizing legal citations from free-form text. Developed by Free Law Project in collaboration with the Harvard Library Innovation Lab, Eyecite has been battle-tested on over fifty million citations across CourtListener and the Caselaw Access Project.
@@ -19,6 +23,7 @@ Eyecite powers CourtListener's Citation Lookup and Verification APIs and can be 
 ### Free Law Project APIs
 
 The CourtListener API, provided by Free Law Project, offers comprehensive access to legal data including:
+
 - Citation lookup and verification endpoints powered by Eyecite
 - Access to millions of legal opinions and documents
 - Court data and docket information
@@ -32,7 +37,6 @@ Learn more at [CourtListener API documentation](https://www.courtlistener.com/he
 - **Batch Processing**: Process entire documents to find and validate multiple citations
 - **Multiple Formats**: Supports `.md`, `.txt`, and `.markdown` files
 - **Detailed Reports**: Generates JSON reports with citation status, case names, and metadata
-- **Security**: Built-in path validation to prevent directory traversal attacks
 - **Claude Code Integration**: Custom slash command for seamless AI-assisted workflows with formatted output
 
 ## Table of Contents
@@ -62,12 +66,14 @@ Learn more at [CourtListener API documentation](https://www.courtlistener.com/he
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/[your-username]/free_law_cite_checker.git
 cd free_law_cite_checker
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install requests python-dotenv
 ```
@@ -76,19 +82,23 @@ pip install requests python-dotenv
 
 ## Getting a CourtListener API Token
 
-CourtListener provides free API access for non-commercial use:
+1. **Get a CourtListener API token**:
 
-1. **Create an Account**:
    - Visit [CourtListener.com](https://www.courtlistener.com)
-   - Click "Sign In" → "Create Account"
-   - Complete the registration process
+   - Create an account or sign in
+   - Navigate to your profile settings
+   - Generate an API token
 
-2. **Generate an API Token**:
-   - Once logged in, click on your username in the top right
-   - Select "Profile" from the dropdown
-   - Scroll down to "API Token" section
-   - Click "Generate Token" if you don't have one
-   - Copy your token (keep it secure!)
+2. **Add your API token to the project**:
+
+   - Set it as an environment variable:
+     ```bash
+     export COURTLISTENER_API_TOKEN="your-token-here"
+     ```
+   - Or create a `.env` file in the project root:
+     ```
+     COURTLISTENER_API_TOKEN=your-token-here
+     ```
 
 3. **API Limits**:
    - Free tier: 5,000 requests per day
@@ -100,22 +110,25 @@ CourtListener provides free API access for non-commercial use:
 ### Using the Python Script Directly
 
 1. **Set your API token** (choose one method):
-   
+
    Environment variable:
+
    ```bash
    export COURTLISTENER_API_TOKEN="your-token-here"
    ```
-   
+
    Or create a `.env` file:
+
    ```
    COURTLISTENER_API_TOKEN=your-token-here
    ```
 
 2. **Run the script**:
+
    ```bash
    # Check citations in a file (output to console)
    python cite_checker.py document.md
-   
+
    # Save report to a specific directory
    python cite_checker.py document.md /path/to/output/directory
    ```
@@ -129,11 +142,13 @@ Claude Code is Anthropic's AI-powered coding assistant that runs in your termina
 #### Installing Claude Code
 
 1. **Install via npm** (requires Node.js 16+):
+
    ```bash
    npm install -g @anthropic-ai/claude-code
    ```
 
 2. **Verify installation**:
+
    ```bash
    claude --version
    ```
@@ -149,21 +164,26 @@ Claude Code is Anthropic's AI-powered coding assistant that runs in your termina
 Claude Code supports custom slash commands - reusable prompts stored as Markdown files that execute specific workflows.
 
 1. **Create the commands directory**:
+
    ```bash
    mkdir -p .claude/commands
    ```
 
 2. **Create a custom command file** `.claude/commands/cite_checker.md`:
+
    ```markdown
    # Citation Check Command
-   
+
    Check legal citations in the specified file and generate a comprehensive report.
-   
+
    ## Usage
+
    /cite_checker <file_path>
-   
+
    ## Instructions
+
    Execute the citation check using the following steps:
+
    1. Validate the input file exists and is readable
    2. Run: python cite_checker.py "$ARGUMENTS" "data/outputs/citecheck_results"
    3. Display formatted results with color coding
@@ -171,11 +191,12 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
    ```
 
 3. **Use the custom command**:
+
    ```bash
    # Start Claude Code in your project directory
    cd /path/to/free_law_cite_checker
    claude
-   
+
    # Use the custom command
    /cite_checker my-legal-document.md
    ```
@@ -249,38 +270,19 @@ The detailed JSON report saved to disk contains comprehensive information:
 }
 ```
 
-### Claude Code Output
-
-When using the `/cite_checker` command, you'll see:
-
-```
-📊 Citation Check Complete
-
-Total citations found: 5
-  ✅ Valid & found: 3
-  ⚠️  Not in database: 1
-  ❌ Invalid format: 0
-  🔄 Multiple matches: 1
-
-Citation Details:
-  ✓ 347 U.S. 483 - Brown v. Board of Education
-  ✗ 999 U.S. 999 - NOT FOUND
-  ⚠️ 123 F.3d 456 - MULTIPLE MATCHES
-
-💾 Report saved to: data/outputs/citecheck_results/document_report_20240326_103000.json
-```
-
 ## Examples
 
 ### Example 1: Simple Citation Check
 
 Create a test file `test.md`:
+
 ```markdown
 The landmark case Brown v. Board of Education, 347 U.S. 483 (1954) established...
 See also Miranda v. Arizona, 384 U.S. 436 (1966) for related precedent.
 ```
 
 Run:
+
 ```bash
 python cite_checker.py test.md
 ```
@@ -299,6 +301,7 @@ claude
 ### Example 3: Batch Processing
 
 Create a simple wrapper script:
+
 ```python
 import os
 from cite_checker import check_citations
@@ -317,39 +320,10 @@ for filename in os.listdir('documents'):
 
 ### Security Notes
 
-- The script validates file paths to prevent directory traversal attacks
-- Output directories are validated to prevent writing to system directories
-- API tokens should never be committed to version control
-
-## Error Messages
-
-Common errors and solutions:
-
-| Error | Solution |
-|-------|----------|
-| "API token required" | Set `COURTLISTENER_API_TOKEN` environment variable |
-| "File not found" | Check file path and ensure file exists |
-| "File must be .md, .txt, or .markdown" | Use a supported file format |
-| "API rate limit exceeded" | Wait before making more requests or upgrade API plan |
-| "Path traversal detected" | Use absolute paths or paths without `..` |
-
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Maintain backward compatibility
-- Add tests for new features
-- Update documentation
-- Follow PEP 8 style guidelines
-- Ensure security best practices
+- The CourtListener API is an external service; it should not be used for privileged or confidential information.
+- The script validates file paths to prevent directory traversal attacks.
+- Output directories are validated to prevent writing to system directories.
+- API tokens (such as your CourtListener API token) should never be committed to version control.
 
 ## License
 
@@ -362,13 +336,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Eyecite](https://github.com/freelawproject/eyecite) - The powerful citation extraction engine behind CourtListener's citation APIs
 - [Harvard Library Innovation Lab](https://lil.law.harvard.edu/) for collaboration on Eyecite development
 - The legal technology community for feedback and suggestions
-
-## Support
-
-- **Issues**: Please use the [GitHub issue tracker](https://github.com/[your-username]/free_law_cite_checker/issues)
-- **Discussions**: Join our [discussions](https://github.com/[your-username]/free_law_cite_checker/discussions)
-- **CourtListener API**: See their [documentation](https://www.courtlistener.com/api/rest/v4/) and [support](https://www.courtlistener.com/contact/)
-
----
-
-Made with ⚖️ by the legal tech community
