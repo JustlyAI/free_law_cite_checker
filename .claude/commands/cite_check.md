@@ -26,7 +26,7 @@ Execute the citation check using the following steps:
    sys.path.append('.')
    from cite_check import check_citations
 
-   result = check_citations("$ARGUMENTS", "data/outputs/citecheck_results")
+   result = check_citations("$ARGUMENTS", "data/outputs")
    ```
 
 3. **Handle Results**

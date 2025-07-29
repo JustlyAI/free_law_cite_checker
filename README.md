@@ -185,7 +185,7 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
    Execute the citation check using the following steps:
 
    1. Validate the input file exists and is readable
-   2. Run: python cite_check.py "$ARGUMENTS" "data/outputs/citecheck_results"
+   2. Run: python cite_check.py "$ARGUMENTS" "data/outputs"
    3. Display formatted results with color coding
    4. Show the report save location
    ```

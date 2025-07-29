@@ -65,19 +65,19 @@ Thor promptly made a claim for coverage under the Policy. However, FM has not pa
 
 The Policy contains several provisions that provide strong support for Thor's coverage claims:
 
-1. **All Risks Coverage**: The Policy broadly provides property damage coverage for "all risks of physical loss or damage" unless specifically excluded. This creates a presumption of coverage that FM must overcome.  
+1. **All Risks Coverage**: The Policy broadly provides property damage coverage for "all risks of physical loss or damage" unless specifically excluded. This creates a presumption of coverage that FM must overcome.
 
-2. **Time Element (Business Interruption) Coverage**: Covers lost earnings or profits "directly resulting from physical loss or damage of the type insured" to Thor's property. This provision is designed to protect Thor's income stream when its properties are impacted.  
+2. **Time Element (Business Interruption) Coverage**: Covers lost earnings or profits "directly resulting from physical loss or damage of the type insured" to Thor's property. This provision is designed to protect Thor's income stream when its properties are impacted.
 
-3. **Rental Insurance**: Specifically covers fair rental value of portions occupied by Thor, income reasonably expected from unoccupied portions, and rental income from rented portions according to leases and agreements. This provision directly addresses Thor's primary loss category.  
+3. **Rental Insurance**: Specifically covers fair rental value of portions occupied by Thor, income reasonably expected from unoccupied portions, and rental income from rented portions according to leases and agreements. This provision directly addresses Thor's primary loss category.
 
-4. **Civil Authority Coverage**: Covers business interruption loss when access to insured locations is "prohibited by order of civil authority" due to "physical damage of the type insured" to property not owned by Thor. The government shutdown orders directly trigger this coverage.  
+4. **Civil Authority Coverage**: Covers business interruption loss when access to insured locations is "prohibited by order of civil authority" due to "physical damage of the type insured" to property not owned by Thor. The government shutdown orders directly trigger this coverage.
 
-5. **Contingent Time Element Coverage**: Covers business interruption losses resulting from physical damage to property of suppliers or customers. This provision addresses the interconnected nature of Thor's business relationships.  
+5. **Contingent Time Element Coverage**: Covers business interruption losses resulting from physical damage to property of suppliers or customers. This provision addresses the interconnected nature of Thor's business relationships.
 
-6. **Attraction Property Coverage**: Covers business interruption resulting from physical damage to properties that attract business to Thor's insured locations. This provision recognizes the value of proximity to other businesses and attractions.  
+6. **Attraction Property Coverage**: Covers business interruption resulting from physical damage to properties that attract business to Thor's insured locations. This provision recognizes the value of proximity to other businesses and attractions.
 
-7. **Communicable Disease Response Coverage**: Provides coverage when a location has "the actual not suspected presence of communicable disease" and access is limited by government order or decision of an officer of the insured. Thor's confirmed COVID-19 cases directly trigger this coverage.  
+7. **Communicable Disease Response Coverage**: Provides coverage when a location has "the actual not suspected presence of communicable disease" and access is limited by government order or decision of an officer of the insured. Thor's confirmed COVID-19 cases directly trigger this coverage.
 
 8. **Contamination Exclusion**: While the policy contains an exclusion for "contamination," it includes an important exception for contamination "directly resulting from other physical damage not excluded by this Policy." This creates a potential pathway around the exclusion.
 
@@ -109,7 +109,7 @@ While this timeline suggests a resolution horizon of approximately 2-3 years, th
 
 Thor's complaint will assert two causes of action:
 
-1. **Anticipatory Breach of Contract**: Thor alleges that FM's response to its claim indicates FM will not honor its contractual obligations under the Policy, constituting an anticipatory breach of the insurance contract. This proactive approach allows Thor to seek relief before FM formally denies the claim, potentially accelerating resolution.  
+1. **Anticipatory Breach of Contract**: Thor alleges that FM's response to its claim indicates FM will not honor its contractual obligations under the Policy, constituting an anticipatory breach of the insurance contract. This proactive approach allows Thor to seek relief before FM formally denies the claim, potentially accelerating resolution.
 
 2. **Declaratory Judgment**: Thor seeks a declaration that it is entitled to the full amount of coverage under the Policy for its COVID-19 related losses. This cause of action provides flexibility in the relief sought and allows the court to clarify the parties' rights and obligations under the Policy.
 
@@ -119,11 +119,11 @@ Both causes of action are strategically chosen to maximize Thor's leverage and p
 
 This case will be governed by New York substantive law on insurance policy interpretation. Under New York law, insurance policies are interpreted according to general principles of contract construction, with several principles that favor policyholders:
 
-1. **Contra Proferentem**: Ambiguities in the policy are construed against the insurer as the drafter of the policy.  
+1. **Contra Proferentem**: Ambiguities in the policy are construed against the insurer as the drafter of the policy.
 
-2. **Reasonable Expectations**: Courts consider the reasonable expectations of the insured when interpreting policy language.  
+2. **Reasonable Expectations**: Courts consider the reasonable expectations of the insured when interpreting policy language.
 
-3. **Burden of Proof for Exclusions**: The insurer bears the burden of proving that an exclusion applies and that it is stated in clear and unmistakable language.  
+3. **Burden of Proof for Exclusions**: The insurer bears the burden of proving that an exclusion applies and that it is stated in clear and unmistakable language.
 
 4. **Broad Interpretation of Coverage Provisions**: Coverage provisions are interpreted broadly to effectuate the purpose of providing coverage.
 
@@ -255,305 +255,4 @@ Based on the legal research and analysis above, Thor's case presents compelling 
 
 This assessment reflects our confidence that Thor's case presents significantly stronger facts and coverage arguments than many other COVID-19 business interruption claims that have faced challenges in court.
 
-## 5\. Damages & Collectability
-
-### a. Damages Assessment
-
-#### Types of Damages
-
-Thor's upcoming complaint identifies several substantial categories of damages:
-
-1. **Lost Rental Income**: Thor estimates "in excess of $20 million in lost rental income alone" due to tenants being unable to generate revenue and requesting rent abatements or other accommodations. This represents Thor's primary category of damages and is directly covered under the Policy's Rental Insurance provision.  
-
-2. **Property Preservation Costs**: Thor has incurred significant costs to secure and preserve properties with confirmed COVID-19 cases, including enhanced cleaning, security, and safety measures.  
-
-3. **Cleanup and Decontamination Costs**: Thor has invested in professional cleaning and decontamination services for properties with confirmed COVID-19 cases, directly covered under the Communicable Disease Response coverage.  
-
-4. **Construction Delays**: Thor has experienced costly delays in construction projects due to government shutdown orders and supply chain disruptions, covered under the Policy's provisions for properties under construction.  
-
-5. **Extra Expenses**: Thor has incurred substantial additional costs to continue business operations during the pandemic, including technology investments for remote work, protective equipment, and modified business practices.  
-
-6. **Public Relations Expenses**: Thor has invested in communications and public relations efforts to manage tenant relationships and preserve its reputation during the crisis.
-
-#### Damages Calculation Methodology
-
-Thor's damages can be calculated with precision using comprehensive business records:
-
-1. **Lost Rental Income**: This can be calculated by comparing:
-
-   - Expected rental income based on lease agreements and historical occupancy rates
-   - Actual rental income received during the pandemic period
-   - Projected future rental income losses based on tenant financial conditions and market trends
-
-   Thor maintains detailed lease agreements and payment records for all properties, providing a solid foundation for these calculations.
-
-2. **Additional Costs**: For other categories of damages, Thor has maintained comprehensive documentation including:
-   - Invoices and receipts for cleanup, decontamination, and property preservation
-   - Construction schedules and documentation of delays
-   - Detailed records of extra expenses incurred to continue operations
-   - Public relations and communications expenditures
-
-This robust documentation will support Thor's damages claims with specificity and precision, enhancing credibility with both the court and potential settlement discussions.
-
-#### Evidence Supporting Damages
-
-Thor's damages claims are supported by extensive documentation:
-
-1. Lease agreements for all affected properties, demonstrating expected rental income
-2. Rent payment records showing non-payment or reduced payments during the pandemic
-3. Communications with tenants regarding inability to pay rent due to government orders
-4. Testing results and other documentation of COVID-19 cases at specific properties
-5. Invoices and receipts for cleanup, decontamination, and property preservation
-6. Construction schedules and documentation of delays caused by the pandemic
-7. Financial statements showing business interruption impact across Thor's portfolio
-
-This comprehensive documentation provides a strong foundation for Thor's damages claims and will be persuasive to both the court and FM in settlement discussions.
-
-#### Potential Recovery Scenarios
-
-Based on the legal analysis and damages assessment, we've developed the following recovery scenarios:
-
-1. **Full Recovery Scenario**: Thor prevails on its argument that COVID-19 caused "physical loss or damage" and that the contamination exclusion does not apply. Recovery of full claimed damages of $20+ million.  
-
-2. **Substantial Recovery Scenario**: Thor partially prevails on its main coverage arguments but with some limitations. Recovery of $10-15 million.  
-
-3. **Partial Recovery Scenario**: Thor establishes coverage under some provisions but faces limitations on others. Recovery of $3-5 million.  
-
-4. **Limited Recovery Scenario**: Thor establishes coverage primarily under the communicable disease provisions, with some additional recovery. Recovery of $1-2 million.  
-
-5. **No Recovery Scenario**: Thor's case is dismissed or judgment is entered for FM.
-
-Based on the foregoing analysis, we believe that a recovery of at least $10 million is highly likely.
-
-### b. Defendant Solvency & Collectability
-
-FM is a financially strong insurance company with substantial assets and the capacity to satisfy a significant judgment. As one of the largest commercial property insurers in the United States, FM has the resources to pay any judgment that might be entered against it in this case.
-
-FM's financial strength is evidenced by its:
-
-- "A+" (Superior) rating from A.M. Best
-- Substantial surplus and reserves
-- Long history of paying valid claims
-- Position as a leader in the commercial property insurance market
-
-Collection risk in this case is minimal. If Thor obtains a judgment against FM, standard judicial procedures would be sufficient to ensure payment. FM's reputation as a major commercial insurer also creates settlement leverage, as it has a vested interest in maintaining its market position and reputation for claims handling.
-
-## 6\. Litigation Strategy & Timeline
-
-### a. Strategic Approach
-
-Our litigation strategy will leverage Thor's unique strengths to maximize the likelihood of a favorable outcome. Key strategic elements include:
-
-1. **Develop Compelling Evidence of Physical Impact**: We will develop detailed scientific and factual evidence regarding Thor's confirmed COVID-19 cases, including testing results, employee reports, public health notifications, and expert testimony on the physical effects of the virus on property. This evidence will directly address the "physical loss or damage" requirement and distinguish Thor's case from unfavorable precedents.  
-
-2. **Pursue Multiple Coverage Paths Simultaneously**: Rather than relying on a single coverage theory, we will aggressively pursue all applicable coverage provisions, including property damage, time element, civil authority, contingent time element, attraction property, and communicable disease coverage. This multi-faceted approach creates several independent paths to recovery and increases settlement pressure on FM.  
-
-3. **Exploit Policy-Specific Language**: We will emphasize the unique aspects of Thor's policy language, particularly the relationship between the contamination exclusion and the communicable disease coverage, to create ambiguities that must be construed against FM as the drafter of the policy.  
-
-4. **Leverage Thor's Unique Position**: As a commercial real estate company with multiple affected properties across different jurisdictions, Thor can distinguish its case from retailers or restaurants that were the plaintiffs in many unfavorable decisions. We will emphasize Thor's sophisticated business operations and the diverse impact of COVID-19 across its portfolio.  
-
-5. **Early Expert Involvement**: We will engage scientific, real estate, and insurance industry experts early to develop compelling testimony regarding the physical effects of the virus on property, the financial impact on Thor's operations, and industry standards for interpreting policy language.  
-
-6. **Strategic Motion Practice**: We will anticipate and preemptively address FM's likely arguments in our pleadings and motion practice, framing the issues favorably from the outset and distinguishing unfavorable precedents before they can be applied to Thor's case.
-
-### b. Key Litigation Milestones & Timeline
-
-**Months 0-6: Initial Pleadings and Motion Practice**
-
-- File complaint in late April, 2020
-- FM's answer or motion to dismiss (expected within 60 days)
-- Opposition to motion to dismiss with compelling scientific evidence and policy analysis
-- Decision on motion to dismiss (expected 3-6 months after filing)
-
-**Months 6-18: Discovery (if case survives motion to dismiss)**
-
-- Initial disclosures and discovery planning
-- Document production focusing on confirmed COVID-19 cases and financial impact
-- Depositions of key witnesses (Thor representatives, FM adjusters, scientific experts)
-- Third-party discovery (tenants, public health officials, etc.)
-- Expert witness designations and reports
-
-**Months 18-24: Summary Judgment**
-
-- FM's motion for summary judgment (expected)
-- Thor's opposition and cross-motion for summary judgment
-- Decision on summary judgment motions
-
-**Months 24-30: Trial Preparation and Trial (if case survives summary judgment)**
-
-- Final pretrial conference
-- Motions in limine
-- Trial (estimated 1-2 weeks)
-- Post-trial motions
-
-**Months 30-36+: Appeal (if necessary)**
-
-- Briefing
-- Oral argument
-- Decision
-
-While this timeline suggests a resolution horizon of approximately 2-3 years, we will actively pursue opportunities for earlier resolution. Each litigation milestone presents a strategic opportunity to leverage Thor's strong position for settlement discussions. FM may recognize the strength of Thor's position after initial motion practice or during discovery, leading to productive settlement negotiations. Additionally, developments in other COVID-19 cases could create favorable precedent that accelerates resolution.
-
-### c. Staffing Plan & Use of Experts
-
-**Legal Team Structure**:
-
-- Lead Partner: Overall case strategy and client communication
-- Senior Associate: Day-to-day case management and discovery coordination
-- Junior Associates (2): Document review, research, and drafting
-- Paralegal Support: Document management and organization
-
-This lean, experienced team ensures efficient case management while maintaining the highest quality representation.
-
-**Expert Witnesses**:
-
-1. **Scientific Expert**: A leading virologist or epidemiologist to testify regarding the physical presence and effects of the COVID-19 virus on surfaces and air within buildings, establishing the "physical loss or damage" element.
-2. **Real Estate/Financial Expert**: A commercial real estate expert to calculate lost rental income and other financial damages with precision and credibility.
-3. **Insurance Industry Expert**: A former insurance executive or regulator to testify regarding industry standards for interpreting policy language and handling claims, particularly for "all risks" policies and communicable disease coverage.
-
-These experts will provide compelling testimony that strengthens Thor's position on both liability and damages.
-
-### d. Settlement Opportunities & Strategy
-
-While we will vigorously pursue litigation, we will also strategically explore settlement opportunities that could provide an earlier return on investment:
-
-1. **Staged Approach**: We will pursue settlement discussions at key litigation milestones, particularly after surviving a motion to dismiss or after key discovery revelations that strengthen Thor's position.  
-
-2. **Leverage Multiple Coverage Arguments**: By pursuing multiple coverage theories simultaneously, we create several pressure points for settlement discussions, as FM must defend against multiple potential paths to recovery.  
-
-3. **Use of Mediation**: We will consider early mediation with a respected mediator experienced in complex insurance disputes, potentially after initial dispositive motions but before incurring significant discovery costs.  
-
-4. **Portfolio Approach**: If FM insures other Thor properties or has other business relationships with Thor, we will explore a global resolution that addresses multiple aspects of the relationship, potentially creating additional settlement leverage.
-
-Given Thor's strong position and FM's interest in avoiding adverse precedent, we believe there is significant potential for a favorable settlement, particularly after surviving initial dispositive motions. A settlement in the range of $7-12 million would represent a successful outcome while avoiding the costs and uncertainty of protracted litigation.
-
-## 7\. Budget & Fee Structure
-
-### a. Litigation Budget Through Trial
-
-We have developed a strategic, efficient litigation budget that maximizes impact while controlling costs:
-
-**Phase 1: Initial Pleadings and Motion to Dismiss (Months 0-6)**
-
-- Attorney Fees: $200,000 \- $250,000
-- Expert Fees: $25,000 \- $50,000
-- Other Expenses: $10,000 \- $15,000
-- Subtotal: $235,000 \- $315,000
-
-**Phase 2: Discovery (Months 6-18)**
-
-- Attorney Fees: $500,000 \- $600,000
-- Expert Fees: $100,000 \- $150,000
-- Document Management: $75,000 \- $100,000
-- Deposition Expenses: $50,000 \- $75,000
-- Other Expenses: $25,000 \- $50,000
-- Subtotal: $750,000 \- $975,000
-
-**Phase 3: Summary Judgment (Months 18-24)**
-
-- Attorney Fees: $200,000 \- $250,000
-- Expert Fees: $50,000 \- $75,000
-- Other Expenses: $15,000 \- $25,000
-- Subtotal: $265,000 \- $350,000
-
-**Phase 4: Trial Preparation and Trial (Months 24-30)**
-
-- Attorney Fees: $300,000 \- $400,000
-- Expert Fees: $75,000 \- $100,000
-- Trial Exhibits and Technology: $25,000 \- $50,000
-- Other Trial Expenses: $50,000 \- $75,000
-- Subtotal: $450,000 \- $625,000
-
-**Total Estimated Budget (through trial)**: $1,700,000 \- $2,265,000
-
-**Contingency Reserve**: An additional 10% ($170,000 \- $226,500) should be allocated for contingencies.
-
-This budget represents a strategic investment in developing Thor's case, with costs aligned with key litigation milestones and focused on the elements most critical to success.
-
-### b. Strategic Cost Management
-
-Our budget reflects several strategic cost management approaches:
-
-1. **Front-Loading Key Investments**: We prioritize early investment in scientific evidence and expert analysis to strengthen Thor's position on the critical "physical loss or damage" issue, potentially leading to early favorable rulings or settlement.  
-
-2. **Efficient Document Management**: Given Thor's portfolio of properties and the number of tenants involved, we will implement advanced document management and analytics tools to efficiently process and analyze the substantial documentation while controlling costs.  
-
-3. **Targeted Expert Testimony**: Rather than engaging numerous experts, we will focus on key experts in science, real estate, and insurance industry standards who can provide compelling testimony on the critical issues.  
-
-4. **Strategic Discovery**: We will pursue focused, strategic discovery rather than broad fishing expeditions, targeting the evidence most likely to strengthen Thor's position and create settlement pressure.
-
-These approaches ensure that litigation resources are deployed efficiently and strategically to maximize impact.
-
-### c. Counsel's Fee Arrangement
-
-Counsel is currently engaged on a hybrid fee arrangement that demonstrates confidence in the case:
-
-1. **Reduced Hourly Rates**: Counsel has agreed to bill at 80% of standard hourly rates, representing a significant investment in the case's success.  
-
-2. **Success Fee**: Counsel will receive a success fee of 10% of any recovery above the $1 million communicable disease sublimit, aligning interests with both Thor and potential litigation funders.
-
-This arrangement demonstrates counsel's confidence in the case while creating alignment among all stakeholders. Counsel is effectively sharing risk by accepting reduced rates and tying a portion of compensation to success.
-
-## 8\. Funding Request
-
-### a. Specific Amount of Funding Sought
-
-We are seeking $1.5 million in litigation funding to support Thor's insurance coverage action against FM.
-
-1. **Total Funding Amount**: $1.5 million (covering approximately 75-85% of the estimated litigation budget through trial)  
-
-2. **Thor's Contribution**: Thor will contribute approximately $500,000 \- $750,000 toward litigation costs, demonstrating its commitment to the case and aligning interests.
-
-This amount represents a strategic investment in a case with exceptional upside potential and multiple paths to recovery.
-
-### b. Use of Funds
-
-The requested funding will be deployed strategically to maximize impact:
-
-- Attorney's Fees: $1,050,000 (70%) \- Supporting experienced insurance coverage litigators with a track record of success
-- Expert Witness Fees: $300,000 (20%) \- Developing compelling scientific, financial, and industry testimony
-- Other Litigation Expenses: $150,000 (10%) \- Supporting document management, deposition costs, and trial preparation
-
-These funds will be deployed in tranches tied to case milestones as outlined in the proposed funding structure, ensuring strategic alignment with case developments.
-
-### c. Risk Sharing by Counsel and Client
-
-Both Thor and counsel are demonstrating commitment to the case through significant risk sharing:
-
-1. **Thor's Risk Sharing**:
-
-   - Direct contribution of $500,000 \- $750,000 toward litigation costs
-   - Bearing the opportunity cost of pursuing litigation rather than accepting the $1 million communicable disease sublimit
-   - Commitment of internal resources to support the litigation
-
-2. **Counsel's Risk Sharing**:
-   - 20% reduction in standard hourly rates
-   - Success fee tied to recovery above the $1 million sublimit
-   - Significant partner time investment in case development
-
-This multi-party risk sharing creates alignment of interests and demonstrates confidence in the case's merits.
-
-### d. Investment Thesis
-
-This case presents an exceptional investment opportunity for several compelling reasons:
-
-1. **Multiple Paths to Recovery**: Thor's policy provides several independent coverage provisions that could each support recovery, creating multiple opportunities for success and reducing binary risk.  
-
-2. **Distinguishable from Unfavorable Precedents**: Thor's confirmed COVID-19 cases and unique policy language provide strong arguments for distinguishing unfavorable precedents, creating a path to success even in a challenging legal landscape.  
-
-3. **Experienced Counsel**: Thor is represented by McKool Smith, a premier trial firm with an exceptional track record in complex insurance coverage disputes and a history of success against major insurers.  
-
-4. **Potential Precedential Value**: As COVID-19 business interruption litigation continues to evolve, a favorable ruling in this case could have significant precedential value for other cases, potentially creating additional settlement leverage.
-
-## 9\. Conclusion
-
-Thor Equities' insurance coverage litigation against Factory Mutual presents a compelling investment opportunity with multiple paths to success and exceptional upside potential. The case involves a sophisticated commercial policyholder with a substantial claim under a broad "all risks" policy with multiple potentially applicable coverage provisions.
-
-Thor's case is distinguished by several critical factors that set it apart from other COVID-19 business interruption claims:
-
-1. Thor has confirmed cases of COVID-19 at multiple properties, providing concrete evidence of physical presence of the virus
-2. Thor's policy contains multiple, overlapping coverage provisions that create several viable paths to recovery
-3. Thor's status as a commercial real estate company with diverse properties across multiple jurisdictions creates unique factual circumstances
-4. Thor filed relatively early in the pandemic, before many unfavorable precedents were established
-
-While litigation inherently involves some risk, Thor's strong factual position, multiple coverage arguments, and experienced counsel make this an opportunity worthy of serious consideration. We welcome the opportunity to discuss this investment opportunity further and to address any questions or concerns.
+[remainder of memo omitted]
