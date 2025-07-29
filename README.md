@@ -168,11 +168,13 @@ This project includes three custom commands for different citation workflows:
 Checks all citations in your document against the CourtListener database.
 
 **Usage**:
+
 ```bash
 /cite_check my-legal-document.md
 ```
 
 **What it does**:
+
 - Sends your entire document to the CourtListener API
 - Validates each citation found
 - Generates a detailed report with validation status
@@ -183,6 +185,7 @@ Checks all citations in your document against the CourtListener database.
 Extracts citations and their context WITHOUT sending data to external APIs.
 
 **Usage**:
+
 ```bash
 /cite_extract input-document.md output-file.md
 # Or without output file (auto-generates in data/outputs/)
@@ -190,6 +193,7 @@ Extracts citations and their context WITHOUT sending data to external APIs.
 ```
 
 **What it does**:
+
 - Reads your document locally
 - Identifies legal citations using pattern recognition
 - Extracts case names and surrounding context
@@ -197,6 +201,7 @@ Extracts citations and their context WITHOUT sending data to external APIs.
 - **Privacy benefit**: Your full document never leaves your machine
 
 **Output format**:
+
 ```markdown
 # Legal Citations Extract
 
@@ -214,16 +219,19 @@ Doe v. Roe, 789 U.S. 123 (2019) - Held that privileged communications...
 Combines extraction and validation for maximum privacy and functionality.
 
 **Usage**:
+
 ```bash
 /cite_extract_and_check my-confidential-brief.md
 ```
 
 **What it does**:
+
 1. First extracts citations locally (like `/cite_extract`)
 2. Then checks ONLY the extracted citations against CourtListener
 3. Saves both the extraction and validation results together
 
 **Benefits**:
+
 - Your full document stays private
 - Only citation text is sent to the API
 - You get full validation results
@@ -244,6 +252,7 @@ For privileged or confidential documents, use `/cite_extract` to create a citati
 The custom commands are already included in `.claude/commands/`. To use them:
 
 1. Start Claude Code in your project directory:
+
    ```bash
    cd /path/to/free_law_cite_checker
    claude
@@ -290,6 +299,7 @@ Report saved: /path/to/output/document/citecheck_result_20240326_103000/citation
 ### Output Directory Structure
 
 When an output directory is specified, the tool creates a nested folder structure:
+
 ```
 <output_directory>/
   └── <filename_without_extension>/
@@ -298,11 +308,13 @@ When an output directory is specified, the tool creates a nested folder structur
 ```
 
 For example:
+
 ```bash
 python cite_check.py legal_memo.md data/outputs
 ```
 
 Creates:
+
 ```
 data/outputs/
   └── legal_memo/
@@ -351,42 +363,10 @@ The detailed JSON report saved to disk contains comprehensive information:
 
 ### Example 1: Simple Citation Check
 
-Create a test file `test.md`:
-
-```markdown
-The landmark case Brown v. Board of Education, 347 U.S. 483 (1954) established...
-See also Miranda v. Arizona, 384 U.S. 436 (1966) for related precedent.
-```
-
-Run:
+Use the provided test file and run the script:
 
 ```bash
-python cite_check.py test.md
-```
-
-### Example 2: Checking a Legal Brief
-
-```bash
-# Direct usage
-python cite_check.py legal-briefs/motion-to-dismiss.md reports/
-
-# With Claude Code
-claude
-/cite_check legal-briefs/motion-to-dismiss.md
-```
-
-### Example 3: Batch Processing
-
-Create a simple wrapper script:
-
-```python
-import os
-from cite_check import check_citations
-
-for filename in os.listdir('documents'):
-    if filename.endswith(('.md', '.txt')):
-        result = check_citations(f'documents/{filename}', 'reports')
-        print(f"Processed {filename}: {result['success']}")
+python cite_check.py data/inputs/test.md
 ```
 
 ## Configuration
