@@ -127,10 +127,10 @@ pip install requests python-dotenv
 
    ```bash
    # Check citations in a file (output to console)
-   python cite_check.py document.md
+   python cite_check.py data/inputs/citecheck_test.md
 
    # Save report to a specific directory
-   python cite_check.py document.md /path/to/output/directory
+   python cite_check.py data/inputs/citecheck_test.md /path/to/output/directory
    ```
 
 ### Using with Claude Code
@@ -251,7 +251,7 @@ The custom commands are already included in `.claude/commands/`. To use them:
 
 2. Use any of the commands:
    ```bash
-   /cite_check document.md
+   /cite_check data/inputs/citecheck_test.md
    /cite_extract brief.md
    /cite_extract_and_check memo.md
    ```
