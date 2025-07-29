@@ -35,6 +35,15 @@ Parse the arguments to get input and output file paths, then:
    - Note the court and year if available
 
 4. **Create Output File**
+
+   If no output file is specified in arguments:
+
+   - Import datetime: `from datetime import datetime`
+   - Extract base filename from input path (without extension)
+   - Create timestamp: `datetime.now().strftime("%Y%m%d_%H%M%S")`
+   - Create output directory: `data/outputs/{base_filename}/citecheck_result_{timestamp}/`
+   - Save extracted citations as `extracted_cites.md` in that directory
+
    Write a markdown file with:
 
    - Name the source and output filenames at the top
@@ -59,9 +68,11 @@ Parse the arguments to get input and output file paths, then:
 
 6. **Output File Naming**
 
-   - **Important**: If output file is not specified, use the input filename + "\_extracted_cites.md"
-   - Example: "memo.md" becomes "memo_extracted_cites.md"
-   - Place in the same directory as the input file
+   - **Important**: If output file is not specified, create organized output structure:
+     - Create folder: `data/outputs/{input_filename}/citecheck_result_{timestamp}/`
+     - Save as: `extracted_cites.md` in that folder
+   - Example: For "memo.md" input, output goes to:
+     `data/outputs/memo/citecheck_result_20250729_150000/extracted_cites.md`
 
 7. **Success Message**
    Display: "✅ Successfully extracted [X] citations to [output_file]"

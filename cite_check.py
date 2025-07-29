@@ -272,14 +272,24 @@ def check_citations(file_path: str, output_dir: Optional[str] = None) -> Dict[st
 
         # Save report if output directory specified
         saved_to = None
+        result_folder = None
         if output_dir:
             # Validate output directory
             output_path = validate_output_directory(output_dir)
-            output_path.mkdir(parents=True, exist_ok=True)
-
-            # Create unique filename with timestamp
+            
+            # Create nested folder structure: output_dir/filename/citecheck_result_timestamp/
+            base_filename = path.stem
+            # Remove '_extracted_cites' suffix if present
+            if base_filename.endswith("_extracted_cites"):
+                base_filename = base_filename[:-16]  # Remove the last 16 characters
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_file = output_path / f"{path.stem}_report_{timestamp}.json"
+            
+            # Create the nested directory structure
+            result_folder = output_path / base_filename / f"citecheck_result_{timestamp}"
+            result_folder.mkdir(parents=True, exist_ok=True)
+            
+            # Save report with consistent name in the timestamped folder
+            output_file = result_folder / "citations_report.json"
 
             # Ensure we're not overwriting system files
             if output_file.exists() and output_file.stat().st_uid == 0:
@@ -289,7 +299,14 @@ def check_citations(file_path: str, output_dir: Optional[str] = None) -> Dict[st
                 json.dump(report, f, indent=2)
             saved_to = str(output_file)
 
-        return {"success": True, "data": {"report": report, "saved_to": saved_to}}
+        # Prepare return data
+        return_data = {"report": report, "saved_to": saved_to}
+        
+        # If we saved to a folder, also return the folder path for other commands to use
+        if result_folder:
+            return_data["result_folder"] = str(result_folder)
+            
+        return {"success": True, "data": return_data}
 
     except ValueError as e:
         return {"success": False, "error": str(e)}
