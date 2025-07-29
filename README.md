@@ -159,46 +159,101 @@ Claude Code is Anthropic's AI-powered coding assistant that runs in your termina
    ```
    This will open your browser for authentication. Your credentials are securely stored.
 
+#### Available Custom Commands
+
+This project includes three custom commands for different citation workflows:
+
+##### 1. `/cite_check` - Direct Citation Validation
+
+Checks all citations in your document against the CourtListener database.
+
+**Usage**:
+```bash
+/cite_check my-legal-document.md
+```
+
+**What it does**:
+- Sends your entire document to the CourtListener API
+- Validates each citation found
+- Generates a detailed report with validation status
+- Saves results to `data/outputs/<filename>/citecheck_result_<timestamp>/citations_report.json`
+
+##### 2. `/cite_extract` - Extract Citations Only
+
+Extracts citations and their context WITHOUT sending data to external APIs.
+
+**Usage**:
+```bash
+/cite_extract input-document.md output-file.md
+# Or without output file (auto-generates in data/outputs/)
+/cite_extract input-document.md
+```
+
+**What it does**:
+- Reads your document locally
+- Identifies legal citations using pattern recognition
+- Extracts case names and surrounding context
+- Creates a condensed file with just the citations
+- **Privacy benefit**: Your full document never leaves your machine
+
+**Output format**:
+```markdown
+# Legal Citations Extract
+
+**Source File:** /path/to/input.md
+**Extract File:** /path/to/output.md
+
+## Citations Found
+
+Smith v. Jones, 123 F.3d 456 (2d Cir. 2020) - Established the standard for...
+Doe v. Roe, 789 U.S. 123 (2019) - Held that privileged communications...
+```
+
+##### 3. `/cite_extract_and_check` - Two-Step Workflow
+
+Combines extraction and validation for maximum privacy and functionality.
+
+**Usage**:
+```bash
+/cite_extract_and_check my-confidential-brief.md
+```
+
+**What it does**:
+1. First extracts citations locally (like `/cite_extract`)
+2. Then checks ONLY the extracted citations against CourtListener
+3. Saves both the extraction and validation results together
+
+**Benefits**:
+- Your full document stays private
+- Only citation text is sent to the API
+- You get full validation results
+- Both files saved in the same result folder
+
+#### Privacy Considerations
+
+When working with sensitive legal documents, consider:
+
+- **`/cite_check`**: Sends your ENTIRE document to CourtListener API
+- **`/cite_extract`**: Processes locally, no external API calls
+- **`/cite_extract_and_check`**: Only sends extracted citations to API
+
+For privileged or confidential documents, use `/cite_extract` to create a citations-only file first, review it, then run `/cite_check` on the extracted file if comfortable.
+
 #### Setting Up Custom Commands
 
-Claude Code supports custom slash commands - reusable prompts stored as Markdown files that execute specific workflows.
+The custom commands are already included in `.claude/commands/`. To use them:
 
-1. **Create the commands directory**:
-
+1. Start Claude Code in your project directory:
    ```bash
-   mkdir -p .claude/commands
-   ```
-
-2. **Create a custom command file** `.claude/commands/cite_check.md`:
-
-   ```markdown
-   # Citation Check Command
-
-   Check legal citations in the specified file and generate a comprehensive report.
-
-   ## Usage
-
-   /cite_check <file_path>
-
-   ## Instructions
-
-   Execute the citation check using the following steps:
-
-   1. Validate the input file exists and is readable
-   2. Run: python cite_check.py "$ARGUMENTS" "data/outputs"
-   3. Display formatted results with color coding
-   4. Show the report save location
-   ```
-
-3. **Use the custom command**:
-
-   ```bash
-   # Start Claude Code in your project directory
    cd /path/to/free_law_cite_checker
    claude
+   ```
 
-   # Use the custom command
-   /cite_check my-legal-document.md
+2. Use any of the commands:
+   ```bash
+   /cite_check document.md
+   /cite_extract brief.md
+   /cite_extract_and_check memo.md
    ```
 
 #### How Custom Commands Work
@@ -206,7 +261,7 @@ Claude Code supports custom slash commands - reusable prompts stored as Markdown
 - Commands are Markdown files in `.claude/commands/`
 - The filename becomes the command name (e.g., `cite_check.md` → `/cite_check`)
 - `$ARGUMENTS` is replaced with any text after the command
-- Commands can include detailed instructions for Claude to follow
+- Commands provide detailed instructions for Claude to follow
 
 #### Benefits of Claude Code Integration
 
@@ -229,7 +284,30 @@ Citation Check Summary:
 - Not found: 4
 - Invalid: 0
 
-Report saved: /path/to/output/document_report_20240326_103000.json
+Report saved: /path/to/output/document/citecheck_result_20240326_103000/citations_report.json
+```
+
+### Output Directory Structure
+
+When an output directory is specified, the tool creates a nested folder structure:
+```
+<output_directory>/
+  └── <filename_without_extension>/
+      └── citecheck_result_YYYYMMDD_HHMMSS/
+          └── citations_report.json
+```
+
+For example:
+```bash
+python cite_check.py legal_memo.md data/outputs
+```
+
+Creates:
+```
+data/outputs/
+  └── legal_memo/
+      └── citecheck_result_20240326_103000/
+          └── citations_report.json
 ```
 
 ### JSON Report Format
