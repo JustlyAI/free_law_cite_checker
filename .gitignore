@@ -2,13 +2,10 @@
 .venv
 .vscode
 
-data/outputs/*
-
-.claude/settings.local.json
-CLAUDE.md
-**/CLAUDE.md
-
 .DS_Store
 **/.DS_Store
 __pycache__/
 **/__pycache__/
+
+.claude/settings.local.json
+data/outputs/*

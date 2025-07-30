@@ -36,11 +36,28 @@ Execute the following steps:
 
 3. **Create Extraction Output**
 
-   First, create a temporary extraction file, then run the citation check to get the result folder:
+   Create output directory structure and save extracted citations:
    
-   - Save initially to a temporary location in the same directory as input file
-   - Use filename: input filename + "_extracted_cites.md"
-   - Format with clear structure:
+   ```python
+   from datetime import datetime
+   from pathlib import Path
+   
+   # Extract base filename from input path (without extension)
+   input_path = Path(input_file)
+   base_filename = input_path.stem
+   
+   # Create timestamp
+   timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   
+   # Create output directory
+   output_dir = Path(f"data/outputs/{base_filename}/citecheck_result_{timestamp}")
+   output_dir.mkdir(parents=True, exist_ok=True)
+   
+   # Save extracted citations
+   extract_path = output_dir / "extracted_cites.md"
+   ```
+   
+   Format the extracted citations file:
    
    ```markdown
    # Legal Citations Extract
@@ -57,25 +74,23 @@ Execute the following steps:
 
 4. **Check Citations with CourtListener**
 
-   Check citations and then move the extracted file to the result folder:
+   Run citation check on the extracted citations file and save the results:
 
    ```python
    import sys
-   import shutil
-   from pathlib import Path
+   import json
    sys.path.append('.')
    from cite_check import check_citations
    
-   # Check the extracted citations file
-   result = check_citations(str(extract_path), "data/outputs")
+   # Check the extracted citations file WITHOUT specifying output_dir
+   # This returns the results without creating any folders
+   result = check_citations(str(extract_path))
    
-   # If successful and we have a result folder, move the extracted file there
-   if result['success'] and 'result_folder' in result['data']:
-       result_folder = Path(result['data']['result_folder'])
-       final_extract_path = result_folder / 'extracted_cites.md'
-       shutil.move(str(extract_path), str(final_extract_path))
-       # Update the extract_path for display
-       extract_path = final_extract_path
+   # Save the results ourselves in the same folder as extracted_cites.md
+   if result['success']:
+       report_path = output_dir / 'citations_report.json'
+       with open(report_path, 'w') as f:
+           json.dump(result['data']['report'], f, indent=2)
    ```
 
 5. **Display Combined Results**
@@ -100,7 +115,7 @@ Execute the following steps:
      ✓ [citation] - [case name] (for found)
      ✗ [citation] - NOT FOUND (for not found)
    
-   💾 Full report saved to: [path]
+   💾 Full report saved to: [output_dir]/citations_report.json
    ```
 
 6. **Error Handling**

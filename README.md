@@ -4,7 +4,7 @@ A Python-based tool for validating legal citations using the CourtListener API. 
 
 ## NOT CONFIDENTIAL
 
-This tool is intended for legal research and citation verification only. Please note that both Claude Code and the CourtListener API are external services. As such, they are not suitable for handling privileged or confidential information—do not submit any sensitive or confidential data when using this tool or its integrations.
+This tool is intended for legal research and citation verification only. Please note that both Claude Code and the CourtListener API are external services. As such, they are not suitable for handling privileged or confidential information without enterprise-grade configuration—do not submit any sensitive or confidential data when using this tool or its integrations.
 
 ## About Eyecite and Free Law Project
 
@@ -68,14 +68,14 @@ Learn more at [CourtListener API documentation](https://www.courtlistener.com/he
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/[your-username]/free_law_cite_checker.git
+git clone https://github.com/justlyai/free_law_cite_checker.git
 cd free_law_cite_checker
 ```
 
 2. Install dependencies:
 
 ```bash
-pip install requests python-dotenv
+pip install requests python-dotenv termcolor
 ```
 
 3. Set up your environment (see [Configuration](#configuration))
@@ -198,7 +198,7 @@ Extracts citations and their context WITHOUT sending data to external APIs.
 - Identifies legal citations using pattern recognition
 - Extracts case names and surrounding context
 - Creates a condensed file with just the citations
-- **Privacy benefit**: Your full document never leaves your machine
+- **Privacy benefit**: Your full document gets sent to the LLM but not to the CourtListener API
 
 **Output format**:
 
@@ -242,7 +242,7 @@ Combines extraction and validation for maximum privacy and functionality.
 When working with sensitive legal documents, consider:
 
 - **`/cite_check`**: Sends your ENTIRE document to CourtListener API
-- **`/cite_extract`**: Processes locally, no external API calls
+- **`/cite_extract`**: Processed by LLM only (can be local), no CourtListener API call
 - **`/cite_extract_and_check`**: Only sends extracted citations to API
 
 For privileged or confidential documents, use `/cite_extract` to create a citations-only file first, review it, then run `/cite_check` on the extracted file if comfortable.
@@ -298,14 +298,7 @@ Report saved: /path/to/output/document/citecheck_result_20240326_103000/citation
 
 ### Output Directory Structure
 
-When an output directory is specified, the tool creates a nested folder structure:
-
-```
-<output_directory>/
-  └── <filename_without_extension>/
-      └── citecheck_result_YYYYMMDD_HHMMSS/
-          └── citations_report.json
-```
+When an output directory is specified, the tool creates a nested folder structure.
 
 For example:
 
@@ -377,6 +370,7 @@ python cite_check.py data/inputs/test.md
 
 ### Security Notes
 
+- When working with confidential information, only use Claude Code with a secure, enterprise-grade configuration.
 - The CourtListener API is an external service; it should not be used for privileged or confidential information.
 - The script validates file paths to prevent directory traversal attacks.
 - Output directories are validated to prevent writing to system directories.
