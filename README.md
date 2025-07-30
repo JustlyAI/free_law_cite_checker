@@ -72,10 +72,20 @@ git clone https://github.com/justlyai/free_law_cite_checker.git
 cd free_law_cite_checker
 ```
 
-2. Install dependencies:
+2. Set up environment with uv:
 
 ```bash
-pip install requests python-dotenv termcolor
+# Create virtual environment
+uv venv
+
+# Activate the virtual environment
+# On macOS/Linux:
+source .venv/bin/activate
+# On Windows:
+# .venv\Scripts\activate
+
+# Install dependencies
+uv sync
 ```
 
 3. Set up your environment (see [Configuration](#configuration))
