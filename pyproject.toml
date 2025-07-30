@@ -6,13 +6,50 @@ build-backend = "hatchling.build"
 name = "free-law-cite-checker"
 version = "0.1.0"
 description = "A Python-based tool for validating legal citations using the CourtListener API"
+readme = "README.md"
 requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Laurent Wiesel", email = "laurent@justly.com"}
+]
+keywords = [
+    "legal",
+    "citations", 
+    "courtlistener",
+    "law",
+    "legal-tech",
+    "citation-validation",
+    "legal-research"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Legal Industry",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+    "Natural Language :: English"
+]
 dependencies = [
     "requests>=2.31.0",
     "python-dotenv>=1.0.0",
     "pydantic>=2.0.0",
     "termcolor>=2.3.0"
 ]
+
+[project.urls]
+Homepage = "https://github.com/justlyai/free_law_cite_checker"
+Repository = "https://github.com/justlyai/free_law_cite_checker"
+Documentation = "https://github.com/justlyai/free_law_cite_checker#readme"
+"Bug Tracker" = "https://github.com/justlyai/free_law_cite_checker/issues"
+Changelog = "https://github.com/justlyai/free_law_cite_checker/releases"
 
 [project.optional-dependencies]
 dev = [

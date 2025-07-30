@@ -54,16 +54,36 @@ class Citation:
 
     @property
     def is_valid(self) -> bool:
+        """Check if the citation was successfully found in the database.
+
+        Returns:
+            bool: True if citation status is FOUND (200), False otherwise.
+        """
         return self.status == CitationStatus.FOUND
 
     @property
     def case_name(self) -> Optional[str]:
+        """Extract the case name from the first cluster if available.
+
+        Returns:
+            Optional[str]: The case name from the first cluster, or None if no clusters exist.
+        """
         if self.clusters:
             return self.clusters[0].get("case_name")
         return None
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "Citation":
+        """Create a Citation instance from a dictionary representation.
+
+        Args:
+            data: Dictionary containing citation data from the API response.
+                Expected keys: citation, normalized_citations, start_index,
+                end_index, status, error_message, clusters.
+
+        Returns:
+            Citation: A new Citation instance populated with the provided data.
+        """
         return cls(
             citation=data.get("citation", ""),
             normalized_citations=data.get("normalized_citations", []),
@@ -79,6 +99,15 @@ class CitationLookupClient:
     """Client for the CourtListener Citation Lookup API."""
 
     def __init__(self, api_token: Optional[str] = None):
+        """Initialize the CourtListener API client.
+
+        Args:
+            api_token: CourtListener API token. If not provided, will attempt to
+                read from COURTLISTENER_API_TOKEN environment variable.
+
+        Raises:
+            ValueError: If no API token is provided or found in environment.
+        """
         self.api_token = api_token or os.environ.get("COURTLISTENER_API_TOKEN")
         if not self.api_token:
             raise ValueError(
@@ -90,6 +119,18 @@ class CitationLookupClient:
         self.session.headers.update(self.headers)
 
     def _handle_response(self, response: requests.Response) -> List[Dict[str, Any]]:
+        """Handle API response and extract JSON data.
+
+        Args:
+            response: The HTTP response from the CourtListener API.
+
+        Returns:
+            List[Dict[str, Any]]: Parsed JSON response containing citation data.
+
+        Raises:
+            Exception: If API token is invalid (401) or rate limit exceeded (429).
+            requests.HTTPError: For other HTTP error responses.
+        """
         if response.status_code == 401:
             raise Exception("Invalid API token")
         if response.status_code == 429:
@@ -99,6 +140,24 @@ class CitationLookupClient:
         return response.json()
 
     def lookup_text(self, text: str) -> List[Citation]:
+        """Look up legal citations in the provided text.
+
+        Sends text to the CourtListener Citation Lookup API which uses Eyecite
+        to extract and validate legal citations.
+
+        Args:
+            text: The text containing legal citations to validate.
+                Must be non-empty and less than 64,000 characters.
+
+        Returns:
+            List[Citation]: List of Citation objects representing found citations
+                with their validation status and metadata.
+
+        Raises:
+            ValueError: If text is empty or exceeds maximum length.
+            Exception: If API returns error (invalid token, rate limit, etc.).
+            requests.RequestException: If network request fails.
+        """
         if not text or not text.strip():
             raise ValueError("Text cannot be empty")
         if len(text) > MAX_TEXT_LENGTH:
@@ -113,9 +172,23 @@ class CitationLookupClient:
         return [Citation.from_dict(result) for result in results]
 
     def __enter__(self):
+        """Enter the runtime context for the client.
+
+        Returns:
+            CitationLookupClient: The client instance for use in with statements.
+        """
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        """Exit the runtime context and clean up resources.
+
+        Closes the underlying requests session to free up connections.
+
+        Args:
+            exc_type: The exception type if an exception occurred.
+            exc_val: The exception value if an exception occurred.
+            exc_tb: The exception traceback if an exception occurred.
+        """
         self.session.close()
 
 
@@ -276,18 +349,17 @@ def check_citations(file_path: str, output_dir: Optional[str] = None) -> Dict[st
         if output_dir:
             # Validate output directory
             output_path = validate_output_directory(output_dir)
-            
+
             # Create nested folder structure: output_dir/filename/citecheck_result_timestamp/
             base_filename = path.stem
-            # Remove '_extracted_cites' suffix if present
-            if base_filename.endswith("_extracted_cites"):
-                base_filename = base_filename[:-16]  # Remove the last 16 characters
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            
+
             # Create the nested directory structure
-            result_folder = output_path / base_filename / f"citecheck_result_{timestamp}"
+            result_folder = (
+                output_path / base_filename / f"citecheck_result_{timestamp}"
+            )
             result_folder.mkdir(parents=True, exist_ok=True)
-            
+
             # Save report with consistent name in the timestamped folder
             output_file = result_folder / "citations_report.json"
 
@@ -301,11 +373,11 @@ def check_citations(file_path: str, output_dir: Optional[str] = None) -> Dict[st
 
         # Prepare return data
         return_data = {"report": report, "saved_to": saved_to}
-        
+
         # If we saved to a folder, also return the folder path for other commands to use
         if result_folder:
             return_data["result_folder"] = str(result_folder)
-            
+
         return {"success": True, "data": return_data}
 
     except ValueError as e:
@@ -315,7 +387,24 @@ def check_citations(file_path: str, output_dir: Optional[str] = None) -> Dict[st
 
 
 def main():
-    """Simple CLI interface for testing."""
+    """Command-line interface for the citation checker.
+
+    Usage:
+        python cite_check.py <file_path> [output_dir]
+
+    Args:
+        file_path: Path to the document to check (must be .md, .txt, or .markdown).
+        output_dir: Optional directory to save the JSON report. If not provided,
+            only prints summary to console.
+
+    Exit codes:
+        0: Success
+        1: Error (invalid arguments, file not found, API error, etc.)
+
+    The script will print a summary to stdout and errors to stderr.
+    When output_dir is specified, saves full report to:
+        output_dir/<filename>/citecheck_result_<timestamp>/citations_report.json
+    """
     if len(sys.argv) < 2:
         print("Usage: python citecheck.py <file_path> [output_dir]")
         sys.exit(1)
@@ -328,13 +417,13 @@ def main():
     if result["success"]:
         report = result["data"]["report"]
         summary = report["metadata"]["summary"]
-        
+
         print("Citation Check Summary:")
         print(f"- Total: {report['metadata']['total_citations']} citations")
         print(f"- Valid: {summary['found']}")
         print(f"- Not found: {summary['not_found']}")
         print(f"- Invalid: {summary['invalid']}")
-        
+
         if result["data"]["saved_to"]:
             print(f"\nReport saved: {result['data']['saved_to']}")
     else:
